@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.1 - 2026-06-08
+
+- Added one-action Windows start and stop launchers
+- Added dependency checks, readiness checks, local logs, and tracked cleanup
+- Updated setup and operations documentation
+
 ## 0.1.0 - 2026-06-08
 
 Initial portfolio release.
@@ -12,4 +18,3 @@ Initial portfolio release.
 - Added backend and frontend tests
 - Added Docker Compose and GitHub Actions CI
 - Added architecture, data model, decisions, reflection, and handoff documents
-

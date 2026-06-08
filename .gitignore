@@ -10,6 +10,7 @@ dist/
 coverage/
 *.tsbuildinfo
 .tmp/
+.run/
 
 # Local configuration and data
 .env

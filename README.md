@@ -57,6 +57,30 @@ Requirements:
 - .NET 10 SDK
 - Node.js 20 or newer
 
+### Easy Windows Start
+
+Double-click:
+
+```text
+START-PENDLERPULS.cmd
+```
+
+The launcher prepares missing dependencies, starts both parts of the app, waits
+until they are ready, and opens `http://127.0.0.1:5173`.
+
+When finished, double-click:
+
+```text
+STOP-PENDLERPULS.cmd
+```
+
+The first start takes longer because project dependencies may need to be
+installed. Later starts are faster.
+
+### Manual Start
+
+The launcher above runs the following development setup for you:
+
 ```powershell
 dotnet restore
 npm install --prefix .\apps\web
@@ -90,6 +114,7 @@ apps/
   web/                 React client
 tests/
   api/                 Backend unit tests
+scripts/               One-command Windows start and stop scripts
 docs/
   adr/                 Short architecture decision records
   api.md               HTTP endpoint reference
@@ -138,4 +163,3 @@ For development or a new chat, read [AGENTS.md](AGENTS.md) and
 - [Operations and logging](docs/operations.md)
 - [Security](docs/security.md)
 - [Reflection](docs/reflection.md)
-

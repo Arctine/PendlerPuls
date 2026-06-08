@@ -2,12 +2,15 @@
 
 ## Current State
 
-PendlerPuls version `0.1.0` is implemented and published at:
+PendlerPuls version `0.1.1` is implemented and published at:
 
 `https://github.com/Arctine/PendlerPuls`
 
 The `main` branch contains the complete MVP. GitHub Actions builds and tests the
 backend and frontend.
+
+Windows users can start the complete local application by double-clicking
+`START-PENDLERPULS.cmd` and stop it with `STOP-PENDLERPULS.cmd`.
 
 ## Implemented User Flow
 
@@ -30,6 +33,7 @@ Verified on June 8, 2026:
 - .NET formatting verification passed
 - live Oslo S to Blindern flow passed through the Vite proxy
 - registration, cookie session, save, refresh, list, and delete passed
+- one-command launcher start, repeated-start handling, and tracked stop passed
 - GitHub Actions passed on `main`
 
 ## Recommended Next Task
@@ -64,4 +68,3 @@ Tell the new chat to read:
 
 That provides enough context to continue without relying on prior conversation
 history.
-

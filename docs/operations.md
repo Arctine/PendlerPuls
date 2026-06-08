@@ -38,6 +38,15 @@ docker compose logs web
 docker compose logs database
 ```
 
+The Windows launcher writes current local logs to:
+
+- `.run/api.out.log`
+- `.run/api.err.log`
+- `.run/web.out.log`
+- `.run/web.err.log`
+
+These files are replaced on the next launch and remain excluded from Git.
+
 Runtime log files are excluded by `.gitignore`. Logs can contain environment
 details and user information, grow quickly, and become stale. Important defects
 should be represented by tests, issue descriptions, or sanitized excerpts
@@ -68,4 +77,3 @@ Before a public deployment:
 - define backup and retention rules
 - add rate limiting
 - review cookie settings behind the selected reverse proxy
-

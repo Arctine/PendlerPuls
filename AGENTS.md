@@ -17,6 +17,7 @@ enterprise-style abstraction.
 - `apps/api`: ASP.NET Core 10 minimal API
 - `apps/web`: React 19 and TypeScript client
 - `tests/api`: xUnit backend tests
+- `scripts`: Windows launcher and shutdown scripts
 - `docs`: design, setup, operations, security, and reflection
 - `.github/workflows/ci.yml`: build and test workflow
 - `docker-compose.yml`: PostgreSQL, API, and Nginx web deployment
@@ -39,6 +40,13 @@ npm install --prefix .\apps\web
 npm test --prefix .\apps\web
 npm run build --prefix .\apps\web
 dotnet format .\PendlerPuls.sln --verify-no-changes --no-restore
+```
+
+For a local smoke test without opening a browser:
+
+```powershell
+.\scripts\Start-PendlerPuls.ps1 -NoBrowser
+.\scripts\Stop-PendlerPuls.ps1
 ```
 
 ## Files That Must Stay Local
@@ -71,4 +79,3 @@ control.
 - Update `docs/api.md` when endpoint contracts change.
 - Update `docs/handoff.md` when current status or the next recommended task
   changes.
-

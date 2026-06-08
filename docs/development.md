@@ -9,6 +9,18 @@
 
 ## First Setup
 
+On Windows, the easiest option is to double-click
+`START-PENDLERPULS.cmd`. It performs setup and starts both applications.
+Double-click `STOP-PENDLERPULS.cmd` when finished.
+
+The PowerShell equivalent, useful when a browser should not open, is:
+
+```powershell
+.\scripts\Start-PendlerPuls.ps1 -NoBrowser
+```
+
+Manual setup remains available:
+
 ```powershell
 dotnet restore
 npm install --prefix .\apps\web
@@ -27,6 +39,9 @@ npm run dev --prefix .\apps\web
 ```
 
 Open `http://localhost:5173`.
+
+The launcher stores temporary process information and current logs under
+`.run/`. That directory is ignored by Git.
 
 ## Configuration
 
@@ -58,6 +73,10 @@ not production secrets.
 
 Confirm that the API is listening on port `5050`. Vite proxies `/api` there.
 
+If a previous launcher session ended unexpectedly, run
+`STOP-PENDLERPULS.cmd`, then start again. If either port belongs to another
+program, the launcher refuses to stop that unrelated program.
+
 ### Entur returns an error
 
 Confirm internet access and the `Entur__ClientName` value. The API must identify
@@ -72,4 +91,3 @@ the next start. This deletes all local accounts and journeys.
 
 Docker is optional. Use the SQLite instructions unless Docker Desktop or another
 compatible Docker engine is installed.
-
