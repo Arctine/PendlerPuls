@@ -17,6 +17,8 @@ coverage/
 *.db
 *.db-shm
 *.db-wal
+*.log
+logs/
 
 # Editors and operating systems
 .idea/

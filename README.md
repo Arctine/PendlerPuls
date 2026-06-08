@@ -21,6 +21,20 @@ containers, and CI.
 - Switch to PostgreSQL through configuration
 - Build the API and web client in GitHub Actions
 
+## How It Works
+
+1. The user searches for two Norwegian places in the React client.
+2. The ASP.NET Core API sends the search to Entur with the required client
+   identification header.
+3. Entur returns the next journey. PendlerPuls reduces the large provider
+   response to duration, delay, lines, modes, and expected times.
+4. A signed-in user can save the origin and destination.
+5. Each manual refresh stores one observation in the database.
+6. The dashboard shows the latest result, average delay, and sample count.
+
+PendlerPuls does not calculate routes itself and does not sell tickets. Entur is
+the source of journey and real-time information.
+
 ## Technology
 
 | Area | Choice |
@@ -78,10 +92,16 @@ tests/
   api/                 Backend unit tests
 docs/
   adr/                 Short architecture decision records
+  api.md               HTTP endpoint reference
   architecture.md      Components and request flow
   data-model.md        Database entities and relationships
+  development.md       Setup, workflow, and troubleshooting
+  handoff.md           Current state and continuation guide
+  operations.md        Configuration, logs, data, and deployment notes
   project-brief.md     Scope, users, and success criteria
   reflection.md        What I learned and what I would improve
+  security.md          Security choices and remaining risks
+  testing.md           Test strategy and verification commands
 ```
 
 ## Honest Limitations
@@ -104,7 +124,18 @@ Government Data (NLOD). PendlerPuls identifies itself with the required
 
 ## Documentation
 
-Start with [docs/project-brief.md](docs/project-brief.md), then read
-[docs/architecture.md](docs/architecture.md) and
-[docs/reflection.md](docs/reflection.md).
+For a quick introduction, start with
+[docs/project-brief.md](docs/project-brief.md).
+
+For development or a new chat, read [AGENTS.md](AGENTS.md) and
+[docs/handoff.md](docs/handoff.md), followed by:
+
+- [Architecture](docs/architecture.md)
+- [API reference](docs/api.md)
+- [Data model](docs/data-model.md)
+- [Development guide](docs/development.md)
+- [Testing](docs/testing.md)
+- [Operations and logging](docs/operations.md)
+- [Security](docs/security.md)
+- [Reflection](docs/reflection.md)
 
