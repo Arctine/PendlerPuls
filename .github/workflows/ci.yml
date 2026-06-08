@@ -1,5 +1,8 @@
 name: CI
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 on:
   push:
     branches: ["main", "master"]
@@ -45,4 +48,3 @@ jobs:
       - name: Build frontend
         run: npm run build
         working-directory: apps/web
-
