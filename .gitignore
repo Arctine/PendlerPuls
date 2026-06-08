@@ -1,0 +1,25 @@
+# .NET
+**/bin/
+**/obj/
+*.user
+*.suo
+
+# Frontend
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+.tmp/
+
+# Local configuration and data
+.env
+.env.local
+*.db
+*.db-shm
+*.db-wal
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
