@@ -1,10 +1,23 @@
-import { averageDelay, delayTone, formatDelay, formatTime } from "../formatters";
+import { type CSSProperties } from "react";
+import {
+  averageDelay,
+  bestDelay,
+  delayTone,
+  delayTrend,
+  formatDelay,
+  formatTime,
+  onTimeRate,
+  reliabilityLabel,
+  reliabilityScore,
+  worstDelay
+} from "../formatters";
 import type { SavedJourney } from "../types";
 
 interface SavedJourneysProps {
   journeys: SavedJourney[];
   busyId: string | null;
   onRefresh: (journey: SavedJourney) => void;
+  onExport: (journey: SavedJourney) => void;
   onDelete: (journey: SavedJourney) => void;
 }
 
@@ -12,6 +25,7 @@ export function SavedJourneys({
   journeys,
   busyId,
   onRefresh,
+  onExport,
   onDelete
 }: SavedJourneysProps) {
   if (journeys.length === 0) {
@@ -27,9 +41,14 @@ export function SavedJourneys({
     <div className="journey-list">
       {journeys.map((journey) => {
         const latest = journey.observations[0];
-        const average = averageDelay(
-          journey.observations.map((item) => item.delayMinutes)
-        );
+        const delays = journey.observations.map((item) => item.delayMinutes);
+        const average = averageDelay(delays);
+        const score = reliabilityScore(delays);
+        const onTime = onTimeRate(delays);
+        const best = bestDelay(delays);
+        const worst = worstDelay(delays);
+        const trend = delayTrend(delays);
+        const canExport = journey.observations.length > 0;
 
         return (
           <article className="journey-card" key={journey.id}>
@@ -70,6 +89,55 @@ export function SavedJourneys({
               </div>
             </div>
 
+            <div className="journey-insights" aria-label={`${journey.name} reliability summary`}>
+              <div className="score-tile">
+                <span>Sample score</span>
+                <strong>{score === null ? "--" : `${score}/100`}</strong>
+                <small>{reliabilityLabel(score)}</small>
+              </div>
+              <div>
+                <span>On-time rate</span>
+                <strong>{onTime === null ? "--" : `${onTime}%`}</strong>
+              </div>
+              <div>
+                <span>Best / worst</span>
+                <strong>
+                  {best === null || worst === null
+                    ? "--"
+                    : `${formatDelay(best)} / ${formatDelay(worst)}`}
+                </strong>
+              </div>
+              <div>
+                <span>Trend</span>
+                <strong className={`trend-${trend}`}>{trend}</strong>
+              </div>
+            </div>
+
+            {journey.observations.length > 0 && (
+              <div
+                className="observation-bars"
+                aria-label={`Recent delay samples for ${journey.name}`}
+              >
+                {journey.observations.slice(0, 8).map((observation) => {
+                  const height = Math.min(
+                    74,
+                    16 + Math.abs(observation.delayMinutes) * 7
+                  );
+
+                  return (
+                    <span
+                      key={observation.id}
+                      className={`observation-bar ${delayTone(observation.delayMinutes)}`}
+                      style={{ "--bar-height": `${height}px` } as CSSProperties}
+                      title={`${formatTime(observation.collectedAtUtc)}: ${formatDelay(
+                        observation.delayMinutes
+                      )}`}
+                    />
+                  );
+                })}
+              </div>
+            )}
+
             {latest && (
               <p className="latest-note">
                 Last checked {formatTime(latest.collectedAtUtc)} via{" "}
@@ -77,20 +145,29 @@ export function SavedJourneys({
               </p>
             )}
 
-            <button
-              className="secondary-button full-width"
-              type="button"
-              disabled={busyId === journey.id}
-              onClick={() => onRefresh(journey)}
-            >
-              {busyId === journey.id
-                ? "Checking live data..."
-                : "Collect new observation"}
-            </button>
+            <div className="journey-actions">
+              <button
+                className="secondary-button full-width"
+                type="button"
+                disabled={busyId === journey.id}
+                onClick={() => onRefresh(journey)}
+              >
+                {busyId === journey.id
+                  ? "Checking live data..."
+                  : "Collect new observation"}
+              </button>
+              <button
+                className="secondary-button export-button"
+                type="button"
+                disabled={!canExport}
+                onClick={() => onExport(journey)}
+              >
+                Export CSV
+              </button>
+            </div>
           </article>
         );
       })}
     </div>
   );
 }
-

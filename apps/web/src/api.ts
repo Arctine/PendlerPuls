@@ -109,6 +109,9 @@ export const api = {
       method: "POST"
     }),
 
+  observationExportUrl: (id: string) =>
+    `${API_BASE}/journeys/${id}/observations.csv`,
+
   deleteJourney: (id: string) =>
     request<void>(`/journeys/${id}`, {
       method: "DELETE"

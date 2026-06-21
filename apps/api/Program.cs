@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Npgsql;
 using PendlerPuls.Api.Data;
 using PendlerPuls.Api.Endpoints;
 using PendlerPuls.Api.Services;
@@ -17,7 +18,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 {
     if (databaseProvider.Equals("Postgres", StringComparison.OrdinalIgnoreCase))
     {
-        options.UseNpgsql(builder.Configuration.GetConnectionString("Postgres"));
+        options.UseNpgsql(ResolvePostgresConnectionString(builder.Configuration));
         return;
     }
 
@@ -30,6 +31,7 @@ builder.Services.AddHttpClient<EnturClient>(client =>
     client.Timeout = TimeSpan.FromSeconds(12);
 });
 builder.Services.AddSingleton<PasswordService>();
+builder.Services.AddSingleton<ObservationCsvExporter>();
 builder.Services.AddScoped<SessionService>();
 
 builder.Services.AddCors(options =>
@@ -48,6 +50,12 @@ var app = builder.Build();
 
 app.UseExceptionHandler();
 app.UseCors("web");
+
+if (!app.Environment.IsDevelopment())
+{
+    app.UseDefaultFiles();
+    app.UseStaticFiles();
+}
 
 if (app.Environment.IsDevelopment())
 {
@@ -71,7 +79,47 @@ app.MapAuthEndpoints();
 app.MapTransitEndpoints();
 app.MapJourneyEndpoints();
 
+if (!app.Environment.IsDevelopment())
+{
+    app.MapFallbackToFile("index.html");
+}
+
 app.Run();
 
-public partial class Program;
+static string ResolvePostgresConnectionString(IConfiguration configuration)
+{
+    var configured =
+        configuration.GetConnectionString("Postgres")
+        ?? configuration["DATABASE_URL"];
 
+    if (string.IsNullOrWhiteSpace(configured))
+    {
+        throw new InvalidOperationException(
+            "PostgreSQL was selected, but no Postgres connection string was configured.");
+    }
+
+    if (!Uri.TryCreate(configured, UriKind.Absolute, out var uri)
+        || (uri.Scheme != "postgres" && uri.Scheme != "postgresql"))
+    {
+        return configured;
+    }
+
+    var credentials = uri.UserInfo.Split(':', 2);
+    var builder = new NpgsqlConnectionStringBuilder
+    {
+        Host = uri.Host,
+        Port = uri.Port > 0 ? uri.Port : 5432,
+        Database = uri.AbsolutePath.TrimStart('/'),
+        Username = credentials.Length > 0 ? Uri.UnescapeDataString(credentials[0]) : string.Empty,
+        Password = credentials.Length > 1 ? Uri.UnescapeDataString(credentials[1]) : string.Empty
+    };
+
+    if (uri.Query.Contains("sslmode=require", StringComparison.OrdinalIgnoreCase))
+    {
+        builder.SslMode = SslMode.Require;
+    }
+
+    return builder.ConnectionString;
+}
+
+public partial class Program;

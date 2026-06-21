@@ -6,6 +6,7 @@ Important values:
 
 - `DATABASE_PROVIDER`: `Sqlite` or `Postgres`
 - `ConnectionStrings__Postgres`: PostgreSQL connection string
+- `DATABASE_URL`: PostgreSQL URL used by some hosting providers
 - `Entur__ClientName`: identifier sent to Entur
 - `VITE_API_BASE_URL`: optional browser API base URL
 
@@ -62,12 +63,16 @@ currently test Entur or database connectivity.
 SQLite local data is stored in `apps/api/pendlerpuls.db` and is ignored by Git.
 Docker Compose stores PostgreSQL data in the `postgres-data` volume.
 
-Backups and retention are not implemented in version `0.1.0`.
+Backups and retention are not implemented in version `0.2.0`.
 
 ## Deployment Notes
 
 Docker Compose exposes Nginx on port `8080`. Nginx serves the React build and
 proxies `/api` to the API container.
+
+The root `Dockerfile` is meant for hosted platforms that prefer one web service.
+It builds the React client and copies it into the API's `wwwroot`, so ASP.NET
+Core serves the static frontend and API from the same origin.
 
 Before a public deployment:
 

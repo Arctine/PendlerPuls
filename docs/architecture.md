@@ -32,8 +32,23 @@ SQLite/Postgres   Entur APIs
 - Accessible forms and feedback
 - Location autocomplete
 - Journey preview and saved journey views
+- Route analytics based on collected observations
+- CSV export entry point for the user's own observation data
 - Session-aware navigation
 - No direct database or Entur access
+
+## Production Shape
+
+Local Docker Compose still runs three containers: web, API, and PostgreSQL.
+
+For simpler public hosting, the root `Dockerfile` builds the React app first,
+copies the built files into the API's `wwwroot`, and runs one ASP.NET Core
+process. In that shape:
+
+- `/` serves the React application
+- `/api/*` serves backend endpoints
+- the browser session cookie stays same-origin
+- the deployment platform only needs one public web service plus PostgreSQL
 
 ## Error Strategy
 
@@ -47,4 +62,3 @@ The current scope does not need microservices. One API keeps deployment,
 debugging, and data consistency understandable for a student project. The Entur
 client and endpoint groups are separate classes, so they can be extracted later
 if there is a real scaling or ownership reason.
-

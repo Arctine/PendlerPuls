@@ -136,6 +136,10 @@ export default function App() {
     }
   }
 
+  function exportJourney(journey: SavedJourney) {
+    window.location.assign(api.observationExportUrl(journey.id));
+  }
+
   async function logout() {
     clearFeedback();
     try {
@@ -317,6 +321,7 @@ export default function App() {
                 journeys={journeys}
                 busyId={busyJourneyId}
                 onRefresh={refreshJourney}
+                onExport={exportJourney}
                 onDelete={deleteJourney}
               />
             ) : (
@@ -416,4 +421,3 @@ function toMessage(error: unknown): string {
 
   return "Something unexpected happened.";
 }
-

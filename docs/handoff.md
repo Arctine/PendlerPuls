@@ -2,7 +2,7 @@
 
 ## Current State
 
-PendlerPuls version `0.1.1` is implemented and published at:
+PendlerPuls version `0.2.0` is implemented and published at:
 
 `https://github.com/Arctine/PendlerPuls`
 
@@ -19,18 +19,24 @@ Windows users can start the complete local application by double-clicking
 3. Register or sign in.
 4. Save the selected journey.
 5. Collect one observation from current live data.
-6. Review the latest result, average delay, and sample count.
-7. Delete the saved journey or sign out.
+6. Review the latest result, average delay, sample count, on-time rate, trend,
+   simple sample score, and recent observation bars.
+7. Export observations as CSV.
+8. Delete the saved journey or sign out.
 
 ## Last Verification
 
-Verified on June 8, 2026:
+Verified on June 21, 2026:
 
-- four backend tests passed
-- three frontend tests passed
+- six backend tests passed
+- five frontend tests passed
 - frontend production build passed
-- npm audit reported zero vulnerabilities
 - .NET formatting verification passed
+- production Dockerfile was not built locally because Docker was not installed
+  or not on PATH in this environment
+
+Previously verified on June 8, 2026:
+
 - live Oslo S to Blindern flow passed through the Vite proxy
 - registration, cookie session, save, refresh, list, and delete passed
 - one-command launcher start, repeated-start handling, and tracked stop passed
@@ -38,14 +44,13 @@ Verified on June 8, 2026:
 
 ## Recommended Next Task
 
-Add versioned Entity Framework migrations for both supported database providers.
-This is the most important step before deploying with persistent production
-data.
+Deploy the single-service Docker setup to a public host and connect it to a
+custom subdomain or portfolio project card.
 
-After migrations:
+Before treating the deployment as production-grade:
 
-1. Add integration tests for endpoint authentication and ownership.
-2. Deploy the Docker stack to a host with HTTPS.
+1. Add versioned Entity Framework migrations for persistent production data.
+2. Add integration tests for endpoint authentication and ownership.
 3. Add rate limiting and production secret management.
 4. Add a scheduled collector only after defining API traffic and retention
    rules.

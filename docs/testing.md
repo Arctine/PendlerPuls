@@ -14,6 +14,7 @@ Current tests cover:
 - rejecting an incorrect password
 - mapping an Entur journey response
 - appending an observation with SQLite
+- exporting observation CSV rows safely
 
 The Entur mapping test uses a stub HTTP response. It does not depend on the live
 provider.
@@ -27,9 +28,9 @@ npm test --prefix .\apps\web
 npm run build --prefix .\apps\web
 ```
 
-Current tests cover delay labels, reliability thresholds, and average delay
-calculation. The production build performs TypeScript checking and Vite
-bundling.
+Current tests cover delay labels, reliability thresholds, average delay,
+on-time rate, trend labels, best/worst delay, and the sample score calculation.
+The production build performs TypeScript checking and Vite bundling.
 
 ## Formatting
 
@@ -57,4 +58,3 @@ GitHub Actions runs:
 - timeout and malformed Entur response cases
 
 These gaps are documented rather than implied to be complete.
-

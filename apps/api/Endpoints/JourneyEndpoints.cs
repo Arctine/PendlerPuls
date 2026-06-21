@@ -1,3 +1,4 @@
+using System.Text;
 using Microsoft.EntityFrameworkCore;
 using PendlerPuls.Api.Contracts;
 using PendlerPuls.Api.Data;
@@ -15,6 +16,7 @@ public static class JourneyEndpoints
         group.MapGet("/", ListAsync);
         group.MapPost("/", SaveAsync);
         group.MapPost("/{id:guid}/refresh", RefreshAsync);
+        group.MapGet("/{id:guid}/observations.csv", ExportObservationsAsync);
         group.MapDelete("/{id:guid}", DeleteAsync);
 
         return app;
@@ -141,6 +143,38 @@ public static class JourneyEndpoints
                 exception.Message,
                 statusCode: StatusCodes.Status502BadGateway);
         }
+    }
+
+    private static async Task<IResult> ExportObservationsAsync(
+        Guid id,
+        AppDbContext database,
+        SessionService sessions,
+        ObservationCsvExporter exporter,
+        HttpContext context,
+        CancellationToken cancellationToken)
+    {
+        var user = await sessions.GetCurrentUserAsync(context, cancellationToken);
+        if (user is null)
+        {
+            return Results.Unauthorized();
+        }
+
+        var journey = await database.SavedJourneys
+            .AsNoTracking()
+            .Include(item => item.Observations)
+            .SingleOrDefaultAsync(
+                item => item.Id == id && item.UserId == user.Id,
+                cancellationToken);
+
+        if (journey is null)
+        {
+            return Results.NotFound();
+        }
+
+        return Results.File(
+            Encoding.UTF8.GetBytes(exporter.BuildCsv(journey)),
+            "text/csv; charset=utf-8",
+            exporter.BuildFileName(journey.Name));
     }
 
     private static async Task<IResult> DeleteAsync(

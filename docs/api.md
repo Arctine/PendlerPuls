@@ -72,6 +72,20 @@ Saves a journey name, origin, and destination for the current user.
 
 Requests a new live journey from Entur and appends one reliability observation.
 
+### `GET /api/journeys/{id}/observations.csv`
+
+Downloads the current user's observations for one saved journey as CSV.
+
+The file contains:
+
+- collection time
+- expected start and end time
+- duration in minutes
+- delay in minutes
+- line summary
+
+Another user's journey ID returns `404`.
+
 ### `DELETE /api/journeys/{id}`
 
 Deletes a journey owned by the current user. Another user's ID returns `404`
@@ -87,4 +101,3 @@ rather than revealing that the resource exists.
 - `404`: owned resource not found
 - `409`: email already registered
 - `502`: Entur did not provide a usable response
-

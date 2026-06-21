@@ -863,10 +863,112 @@ input:focus {
   color: white;
 }
 
+.journey-insights {
+  display: grid;
+  grid-template-columns: 1.1fr repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.journey-insights > div {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  background: rgba(243, 240, 232, 0.52);
+}
+
+.journey-insights span {
+  color: var(--muted);
+  font-size: 0.65rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.journey-insights strong {
+  overflow: hidden;
+  color: var(--ink);
+  font-size: 0.9rem;
+  text-overflow: ellipsis;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.journey-insights small {
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+.score-tile {
+  background:
+    radial-gradient(circle at 100% 0, rgba(188, 234, 216, 0.56), transparent 42%),
+    var(--card) !important;
+}
+
+.trend-improving {
+  color: var(--mint-strong) !important;
+}
+
+.trend-worsening {
+  color: var(--coral) !important;
+}
+
+.trend-steady,
+.trend-unknown {
+  color: var(--muted) !important;
+}
+
+.observation-bars {
+  display: flex;
+  align-items: end;
+  gap: 7px;
+  height: 92px;
+  margin-top: 14px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(to top, rgba(19, 36, 31, 0.07) 1px, transparent 1px),
+    rgba(255, 253, 247, 0.55);
+  background-size: 100% 24px;
+}
+
+.observation-bar {
+  width: 100%;
+  min-width: 8px;
+  height: var(--bar-height);
+  border-radius: 999px 999px 2px 2px;
+  background: var(--muted);
+}
+
+.observation-bar.good {
+  background: var(--mint-strong);
+}
+
+.observation-bar.watch {
+  background: var(--yellow);
+}
+
+.observation-bar.late {
+  background: var(--coral);
+}
+
 .latest-note {
   margin: 14px 0;
   color: var(--muted);
   font-size: 0.75rem;
+}
+
+.journey-actions {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+}
+
+.export-button {
+  min-width: 128px;
+  white-space: nowrap;
 }
 
 .site-footer {
@@ -1003,6 +1105,15 @@ input:focus {
     grid-template-columns: 1fr;
   }
 
+  .journey-insights,
+  .journey-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .export-button {
+    width: 100%;
+  }
+
   .site-footer {
     display: flex;
   }
@@ -1021,4 +1132,3 @@ input:focus {
     transition-duration: 0.01ms !important;
   }
 }
-

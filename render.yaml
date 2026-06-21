@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: pendlerpuls
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    region: frankfurt
+    plan: free
+    healthCheckPath: /api/health
+    autoDeployTrigger: checksPass
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ASPNETCORE_URLS
+        value: http://+:8080
+      - key: DATABASE_PROVIDER
+        value: Postgres
+      - key: DATABASE_URL
+        fromDatabase:
+          name: pendlerpuls-db
+          property: connectionString
+      - key: Entur__ClientName
+        value: arctine-pendlerpuls
+
+databases:
+  - name: pendlerpuls-db
+    region: frankfurt
+    plan: free
+    postgresMajorVersion: "17"

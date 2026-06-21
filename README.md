@@ -16,10 +16,14 @@ containers, and CI.
 - Preview a live journey with duration, expected delay, and transport lines
 - Register and sign in with an HTTP-only cookie session
 - Save journeys and collect reliability observations
-- Review recent delay history for each saved journey
+- Review recent delay history, sample score, on-time rate, and trend for each
+  saved journey
+- Export saved journey observations as CSV
 - Run locally with SQLite without installing a database server
 - Switch to PostgreSQL through configuration
 - Build the API and web client in GitHub Actions
+- Deploy as a single public web service with the root `Dockerfile` and
+  `render.yaml`
 
 ## How It Works
 
@@ -30,7 +34,10 @@ containers, and CI.
    response to duration, delay, lines, modes, and expected times.
 4. A signed-in user can save the origin and destination.
 5. Each manual refresh stores one observation in the database.
-6. The dashboard shows the latest result, average delay, and sample count.
+6. The dashboard shows the latest result, average delay, sample count, on-time
+   percentage, worst/best sample, a simple reliability score, and a recent
+   observation chart.
+7. The user can export the collected observations as CSV.
 
 PendlerPuls does not calculate routes itself and does not sell tickets. Entur is
 the source of journey and real-time information.
@@ -106,6 +113,18 @@ docker compose up --build
 
 The web app is then available at `http://localhost:8080`.
 
+## Put It Online
+
+The root [Dockerfile](Dockerfile) builds the React app and publishes the API as
+one ASP.NET Core service. In production the API serves both the static frontend
+and `/api`, which keeps cookies same-origin.
+
+The included [render.yaml](render.yaml) is a Render Blueprint for a small public
+deployment with a managed PostgreSQL database. See
+[docs/deployment.md](docs/deployment.md) for the full checklist and
+[docs/portfolio-integration.md](docs/portfolio-integration.md) for a simple
+project card to add to an existing portfolio website.
+
 ## Repository Structure
 
 ```text
@@ -123,6 +142,8 @@ docs/
   development.md       Setup, workflow, and troubleshooting
   handoff.md           Current state and continuation guide
   operations.md        Configuration, logs, data, and deployment notes
+  deployment.md        Public hosting and custom-domain checklist
+  portfolio-integration.md  Copy for linking the app from a portfolio site
   project-brief.md     Scope, users, and success criteria
   reflection.md        What I learned and what I would improve
   security.md          Security choices and remaining risks
