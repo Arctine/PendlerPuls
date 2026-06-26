@@ -10,6 +10,8 @@ show Android, desktop, game, and static web development. PendlerPuls focuses on
 backend development, data modelling, external APIs, authentication, testing,
 containers, and CI.
 
+Live demo: `https://pendlerpuls.onrender.com`
+
 ## Current Features
 
 - Search Norwegian stops and places through Entur's geocoder
@@ -118,6 +120,12 @@ The web app is then available at `http://localhost:8080`.
 The root [Dockerfile](Dockerfile) builds the React app and publishes the API as
 one ASP.NET Core service. In production the API serves both the static frontend
 and `/api`, which keeps cookies same-origin.
+
+The current public deployment is:
+
+```text
+https://pendlerpuls.onrender.com
+```
 
 The included [render.yaml](render.yaml) is a Render Blueprint for a small public
 deployment with a managed PostgreSQL database. See

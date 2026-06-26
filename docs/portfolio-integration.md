@@ -26,7 +26,7 @@ Architecture Notes
 
 Use these targets:
 
-- `Live Demo`: hosted PendlerPuls URL
+- `Live Demo`: `https://pendlerpuls.onrender.com`
 - `Source Code`: `https://github.com/Arctine/PendlerPuls`
 - `Architecture Notes`: `https://github.com/Arctine/PendlerPuls/blob/main/docs/architecture.md`
 
@@ -46,7 +46,7 @@ Use these targets:
     <li>SQLite locally, PostgreSQL for deployment</li>
     <li>Docker and GitHub Actions</li>
   </ul>
-  <a href="https://your-live-demo-url.example">Live demo</a>
+  <a href="https://pendlerpuls.onrender.com">Live demo</a>
   <a href="https://github.com/Arctine/PendlerPuls">GitHub</a>
 </article>
 ```

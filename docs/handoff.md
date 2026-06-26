@@ -2,9 +2,13 @@
 
 ## Current State
 
-PendlerPuls version `0.2.1` is implemented and published at:
+PendlerPuls version `0.2.2` is implemented and published at:
 
 `https://github.com/Arctine/PendlerPuls`
+
+Live deployment:
+
+`https://pendlerpuls.onrender.com`
 
 The `main` branch contains the complete MVP. GitHub Actions builds and tests the
 backend and frontend.
@@ -31,6 +35,7 @@ Verified on June 26, 2026:
 - eight backend tests passed
 - .NET formatting verification passed
 - Render PostgreSQL connection-string resolution was fixed and covered by tests
+- live Render health check passed at `https://pendlerpuls.onrender.com/api/health`
 
 Verified on June 21, 2026:
 
@@ -50,8 +55,8 @@ Previously verified on June 8, 2026:
 
 ## Recommended Next Task
 
-Deploy the single-service Docker setup to a public host and connect it to a
-custom subdomain or portfolio project card.
+Add a small PendlerPuls project card to the existing portfolio website or point
+a custom subdomain at the Render deployment.
 
 Before treating the deployment as production-grade:
 

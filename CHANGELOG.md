@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.2 - 2026-06-26
+
+- Documented the live Render deployment URL
+- Updated handoff notes now that deployment is complete
+
 ## 0.2.1 - 2026-06-26
 
 - Fixed Render PostgreSQL startup by preferring `DATABASE_URL` over the local

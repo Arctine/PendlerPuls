@@ -6,6 +6,12 @@ as one hosted web service backed by a managed PostgreSQL database.
 The hosted setup is intentionally simple because this is a portfolio project:
 one public app URL, one database, and no separate frontend/API domains.
 
+Current Render deployment:
+
+```text
+https://pendlerpuls.onrender.com
+```
+
 ## Recommended Public Shape
 
 ```text
@@ -43,6 +49,8 @@ are served from the same origin.
 5. Open the Render-provided `onrender.com` URL.
 6. Confirm `/api/health` returns `ok`.
 7. Register a test account, save a route, refresh it, and export CSV.
+
+The current deployment passed the `/api/health` check on June 26, 2026.
 
 ## Important Environment Values
 
