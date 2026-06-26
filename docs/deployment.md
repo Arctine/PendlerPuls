@@ -57,6 +57,25 @@ The Blueprint sets:
 Do not commit real production secrets. Add provider-specific secrets through the
 hosting dashboard.
 
+## Troubleshooting Render Database Startup
+
+If the deploy log says:
+
+```text
+Failed to connect to 127.0.0.1:5432
+```
+
+the app is trying to use the local development PostgreSQL connection string
+instead of Render's managed database URL.
+
+Check that the web service has:
+
+- `DATABASE_PROVIDER=Postgres`
+- `DATABASE_URL` populated from the Render PostgreSQL database
+
+The application prefers `DATABASE_URL` when it is present and only falls back to
+`ConnectionStrings:Postgres` for local or manual deployments.
+
 ## Custom Domain
 
 After the Render URL works, add a custom domain such as:

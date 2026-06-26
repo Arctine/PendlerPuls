@@ -2,7 +2,7 @@
 
 ## Current State
 
-PendlerPuls version `0.2.0` is implemented and published at:
+PendlerPuls version `0.2.1` is implemented and published at:
 
 `https://github.com/Arctine/PendlerPuls`
 
@@ -25,6 +25,12 @@ Windows users can start the complete local application by double-clicking
 8. Delete the saved journey or sign out.
 
 ## Last Verification
+
+Verified on June 26, 2026:
+
+- eight backend tests passed
+- .NET formatting verification passed
+- Render PostgreSQL connection-string resolution was fixed and covered by tests
 
 Verified on June 21, 2026:
 

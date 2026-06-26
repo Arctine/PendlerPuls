@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.1 - 2026-06-26
+
+- Fixed Render PostgreSQL startup by preferring `DATABASE_URL` over the local
+  appsettings fallback connection string
+- Added tests for hosted PostgreSQL connection-string resolution
+- Added Render database startup troubleshooting notes
+
 ## 0.2.0 - 2026-06-21
 
 - Added saved-route analytics with sample score, on-time rate, best/worst delay,
