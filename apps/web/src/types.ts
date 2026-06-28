@@ -9,6 +9,7 @@ export interface LocationReference {
   label: string;
   latitude: number;
   longitude: number;
+  kind?: "stop" | "address" | "place";
 }
 
 export interface TripPreview {
@@ -41,4 +42,3 @@ export interface SavedJourney {
   createdAtUtc: string;
   observations: Observation[];
 }
-

@@ -12,6 +12,11 @@ coverage/
 .tmp/
 .run/
 
+# Xcode
+DerivedData/
+xcuserdata/
+*.xcuserstate
+
 # Local configuration and data
 .env
 .env.local

@@ -1,0 +1,407 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8B2C0201A1B2C3D4E5F60001 /* PendlerPulsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2C0101A1B2C3D4E5F60001 /* PendlerPulsApp.swift */; };
+		8B2C0202A1B2C3D4E5F60002 /* PendlerModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2C0102A1B2C3D4E5F60002 /* PendlerModels.swift */; };
+		8B2C0203A1B2C3D4E5F60003 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2C0103A1B2C3D4E5F60003 /* ApiClient.swift */; };
+		8B2C0204A1B2C3D4E5F60004 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2C0104A1B2C3D4E5F60004 /* AuthService.swift */; };
+		8B2C0205A1B2C3D4E5F60005 /* TransitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2C0105A1B2C3D4E5F60005 /* TransitService.swift */; };
+		8B2C0206A1B2C3D4E5F60006 /* JourneyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2C0106A1B2C3D4E5F60006 /* JourneyService.swift */; };
+		8B2C0207A1B2C3D4E5F60007 /* AppSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2C0107A1B2C3D4E5F60007 /* AppSession.swift */; };
+		8B2C0208A1B2C3D4E5F60008 /* LocationSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2C0108A1B2C3D4E5F60008 /* LocationSearchViewModel.swift */; };
+		8B2C0209A1B2C3D4E5F60009 /* SavedJourneysViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2C0109A1B2C3D4E5F60009 /* SavedJourneysViewModel.swift */; };
+		8B2C0210A1B2C3D4E5F60010 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2C0110A1B2C3D4E5F60010 /* ContentView.swift */; };
+		8B2C0211A1B2C3D4E5F60011 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2C0111A1B2C3D4E5F60011 /* AuthView.swift */; };
+		8B2C0212A1B2C3D4E5F60012 /* LocationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2C0112A1B2C3D4E5F60012 /* LocationSearchView.swift */; };
+		8B2C0213A1B2C3D4E5F60013 /* TripPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2C0113A1B2C3D4E5F60013 /* TripPreviewView.swift */; };
+		8B2C0214A1B2C3D4E5F60014 /* SavedJourneysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2C0114A1B2C3D4E5F60014 /* SavedJourneysView.swift */; };
+		8B2C0215A1B2C3D4E5F60015 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2C0115A1B2C3D4E5F60015 /* AccountView.swift */; };
+		8B2C0216A1B2C3D4E5F60016 /* DisplayFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2C0116A1B2C3D4E5F60016 /* DisplayFormatters.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8B2C0002A1B2C3D4E5F60002 /* PendlerPuls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PendlerPuls.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B2C0101A1B2C3D4E5F60001 /* PendlerPulsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendlerPulsApp.swift; sourceTree = "<group>"; };
+		8B2C0102A1B2C3D4E5F60002 /* PendlerModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendlerModels.swift; sourceTree = "<group>"; };
+		8B2C0103A1B2C3D4E5F60003 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		8B2C0104A1B2C3D4E5F60004 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		8B2C0105A1B2C3D4E5F60005 /* TransitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitService.swift; sourceTree = "<group>"; };
+		8B2C0106A1B2C3D4E5F60006 /* JourneyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyService.swift; sourceTree = "<group>"; };
+		8B2C0107A1B2C3D4E5F60007 /* AppSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSession.swift; sourceTree = "<group>"; };
+		8B2C0108A1B2C3D4E5F60008 /* LocationSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewModel.swift; sourceTree = "<group>"; };
+		8B2C0109A1B2C3D4E5F60009 /* SavedJourneysViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedJourneysViewModel.swift; sourceTree = "<group>"; };
+		8B2C0110A1B2C3D4E5F60010 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8B2C0111A1B2C3D4E5F60011 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		8B2C0112A1B2C3D4E5F60012 /* LocationSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchView.swift; sourceTree = "<group>"; };
+		8B2C0113A1B2C3D4E5F60013 /* TripPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPreviewView.swift; sourceTree = "<group>"; };
+		8B2C0114A1B2C3D4E5F60014 /* SavedJourneysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedJourneysView.swift; sourceTree = "<group>"; };
+		8B2C0115A1B2C3D4E5F60015 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		8B2C0116A1B2C3D4E5F60016 /* DisplayFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayFormatters.swift; sourceTree = "<group>"; };
+		8B2C0118A1B2C3D4E5F60018 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8B2C0302A1B2C3D4E5F60002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8B2C0003A1B2C3D4E5F60003 = {
+			isa = PBXGroup;
+			children = (
+				8B2C0005A1B2C3D4E5F60005 /* PendlerPuls */,
+				8B2C0004A1B2C3D4E5F60004 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8B2C0004A1B2C3D4E5F60004 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8B2C0002A1B2C3D4E5F60002 /* PendlerPuls.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8B2C0005A1B2C3D4E5F60005 /* PendlerPuls */ = {
+			isa = PBXGroup;
+			children = (
+				8B2C0101A1B2C3D4E5F60001 /* PendlerPulsApp.swift */,
+				8B2C0006A1B2C3D4E5F60006 /* Models */,
+				8B2C0007A1B2C3D4E5F60007 /* Services */,
+				8B2C0009A1B2C3D4E5F60009 /* ViewModels */,
+				8B2C0008A1B2C3D4E5F60008 /* Views */,
+				8B2C0118A1B2C3D4E5F60018 /* Info.plist */,
+			);
+			path = PendlerPuls;
+			sourceTree = "<group>";
+		};
+		8B2C0006A1B2C3D4E5F60006 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8B2C0102A1B2C3D4E5F60002 /* PendlerModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8B2C0007A1B2C3D4E5F60007 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8B2C0103A1B2C3D4E5F60003 /* ApiClient.swift */,
+				8B2C0104A1B2C3D4E5F60004 /* AuthService.swift */,
+				8B2C0105A1B2C3D4E5F60005 /* TransitService.swift */,
+				8B2C0106A1B2C3D4E5F60006 /* JourneyService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		8B2C0008A1B2C3D4E5F60008 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8B2C0110A1B2C3D4E5F60010 /* ContentView.swift */,
+				8B2C0111A1B2C3D4E5F60011 /* AuthView.swift */,
+				8B2C0112A1B2C3D4E5F60012 /* LocationSearchView.swift */,
+				8B2C0113A1B2C3D4E5F60013 /* TripPreviewView.swift */,
+				8B2C0114A1B2C3D4E5F60014 /* SavedJourneysView.swift */,
+				8B2C0115A1B2C3D4E5F60015 /* AccountView.swift */,
+				8B2C0116A1B2C3D4E5F60016 /* DisplayFormatters.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8B2C0009A1B2C3D4E5F60009 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				8B2C0107A1B2C3D4E5F60007 /* AppSession.swift */,
+				8B2C0108A1B2C3D4E5F60008 /* LocationSearchViewModel.swift */,
+				8B2C0109A1B2C3D4E5F60009 /* SavedJourneysViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8B2C0001A1B2C3D4E5F60001 /* PendlerPuls */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B2C0402A1B2C3D4E5F60002 /* Build configuration list for PBXNativeTarget "PendlerPuls" */;
+			buildPhases = (
+				8B2C0301A1B2C3D4E5F60001 /* Sources */,
+				8B2C0302A1B2C3D4E5F60002 /* Frameworks */,
+				8B2C0303A1B2C3D4E5F60003 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PendlerPuls;
+			productName = PendlerPuls;
+			productReference = 8B2C0002A1B2C3D4E5F60002 /* PendlerPuls.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8B2C0010A1B2C3D4E5F60010 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2630;
+				LastUpgradeCheck = 2630;
+				TargetAttributes = {
+					8B2C0001A1B2C3D4E5F60001 = {
+						CreatedOnToolsVersion = 26.3;
+					};
+				};
+			};
+			buildConfigurationList = 8B2C0401A1B2C3D4E5F60001 /* Build configuration list for PBXProject "PendlerPuls" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8B2C0003A1B2C3D4E5F60003;
+			productRefGroup = 8B2C0004A1B2C3D4E5F60004 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8B2C0001A1B2C3D4E5F60001 /* PendlerPuls */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8B2C0303A1B2C3D4E5F60003 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8B2C0301A1B2C3D4E5F60001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B2C0201A1B2C3D4E5F60001 /* PendlerPulsApp.swift in Sources */,
+				8B2C0202A1B2C3D4E5F60002 /* PendlerModels.swift in Sources */,
+				8B2C0203A1B2C3D4E5F60003 /* ApiClient.swift in Sources */,
+				8B2C0204A1B2C3D4E5F60004 /* AuthService.swift in Sources */,
+				8B2C0205A1B2C3D4E5F60005 /* TransitService.swift in Sources */,
+				8B2C0206A1B2C3D4E5F60006 /* JourneyService.swift in Sources */,
+				8B2C0207A1B2C3D4E5F60007 /* AppSession.swift in Sources */,
+				8B2C0208A1B2C3D4E5F60008 /* LocationSearchViewModel.swift in Sources */,
+				8B2C0209A1B2C3D4E5F60009 /* SavedJourneysViewModel.swift in Sources */,
+				8B2C0210A1B2C3D4E5F60010 /* ContentView.swift in Sources */,
+				8B2C0211A1B2C3D4E5F60011 /* AuthView.swift in Sources */,
+				8B2C0212A1B2C3D4E5F60012 /* LocationSearchView.swift in Sources */,
+				8B2C0213A1B2C3D4E5F60013 /* TripPreviewView.swift in Sources */,
+				8B2C0214A1B2C3D4E5F60014 /* SavedJourneysView.swift in Sources */,
+				8B2C0215A1B2C3D4E5F60015 /* AccountView.swift in Sources */,
+				8B2C0216A1B2C3D4E5F60016 /* DisplayFormatters.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		8B2C0501A1B2C3D4E5F60001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8B2C0502A1B2C3D4E5F60002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8B2C0503A1B2C3D4E5F60003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = PendlerPuls/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.arctine.PendlerPuls;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		8B2C0504A1B2C3D4E5F60004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = PendlerPuls/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.arctine.PendlerPuls;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8B2C0401A1B2C3D4E5F60001 /* Build configuration list for PBXProject "PendlerPuls" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B2C0501A1B2C3D4E5F60001 /* Debug */,
+				8B2C0502A1B2C3D4E5F60002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B2C0402A1B2C3D4E5F60002 /* Build configuration list for PBXNativeTarget "PendlerPuls" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B2C0503A1B2C3D4E5F60003 /* Debug */,
+				8B2C0504A1B2C3D4E5F60004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8B2C0010A1B2C3D4E5F60010 /* Project object */;
+}

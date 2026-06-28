@@ -11,6 +11,7 @@ public static class TransitEndpoints
 
         group.MapGet("/locations", SearchLocationsAsync);
         group.MapPost("/preview", PreviewTripAsync);
+        group.MapPost("/options", PreviewTripOptionsAsync);
 
         return app;
     }
@@ -53,6 +54,28 @@ public static class TransitEndpoints
         try
         {
             return Results.Ok(await entur.PreviewTripAsync(request, cancellationToken));
+        }
+        catch (EnturUpstreamException exception)
+        {
+            return Results.Problem(
+                exception.Message,
+                statusCode: StatusCodes.Status502BadGateway);
+        }
+    }
+
+    private static async Task<IResult> PreviewTripOptionsAsync(
+        TripPreviewRequest request,
+        EnturClient entur,
+        CancellationToken cancellationToken)
+    {
+        if (!IsValidLocation(request.From) || !IsValidLocation(request.To))
+        {
+            return Results.BadRequest(new { message = "Choose both locations from search." });
+        }
+
+        try
+        {
+            return Results.Ok(await entur.PreviewTripOptionsAsync(request, cancellationToken));
         }
         catch (EnturUpstreamException exception)
         {

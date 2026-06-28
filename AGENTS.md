@@ -16,6 +16,7 @@ enterprise-style abstraction.
 
 - `apps/api`: ASP.NET Core 10 minimal API
 - `apps/web`: React 19 and TypeScript client
+- `apps/ios/PendlerPuls`: SwiftUI iPhone companion app
 - `tests/api`: xUnit backend tests
 - `scripts`: Windows launcher and shutdown scripts
 - `docs`: design, setup, operations, security, and reflection
@@ -40,6 +41,12 @@ npm install --prefix .\apps\web
 npm test --prefix .\apps\web
 npm run build --prefix .\apps\web
 dotnet format .\PendlerPuls.sln --verify-no-changes --no-restore
+```
+
+On macOS, verify the iPhone client with:
+
+```bash
+xcodebuild -project apps/ios/PendlerPuls/PendlerPuls.xcodeproj -scheme PendlerPuls -configuration Debug -destination generic/platform=iOS -derivedDataPath .tmp/ios-derived CODE_SIGNING_ALLOWED=NO build
 ```
 
 For a local smoke test without opening a browser:

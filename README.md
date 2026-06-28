@@ -21,6 +21,7 @@ Live demo: `https://pendlerpuls.onrender.com`
 - Review recent delay history, sample score, on-time rate, and trend for each
   saved journey
 - Export saved journey observations as CSV
+- Use a small native SwiftUI iPhone companion client against the same API
 - Run locally with SQLite without installing a database server
 - Switch to PostgreSQL through configuration
 - Build the API and web client in GitHub Actions
@@ -50,6 +51,7 @@ the source of journey and real-time information.
 | --- | --- |
 | Backend | ASP.NET Core 10 minimal API |
 | Frontend | React 19, TypeScript, Vite |
+| iPhone client | SwiftUI |
 | Data | Entity Framework Core, SQLite locally, PostgreSQL in containers |
 | External data | Entur Geocoder and Journey Planner v3 |
 | Tests | xUnit and Vitest |
@@ -139,6 +141,7 @@ project card to add to an existing portfolio website.
 apps/
   api/                 ASP.NET Core API and persistence
   web/                 React client
+  ios/PendlerPuls/     SwiftUI iPhone companion app
 tests/
   api/                 Backend unit tests
 scripts/               One-command Windows start and stop scripts

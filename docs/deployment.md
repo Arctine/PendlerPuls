@@ -62,6 +62,11 @@ The Blueprint sets:
 - `DATABASE_URL` from the managed database connection string
 - `Entur__ClientName=arctine-pendlerpuls`
 
+When `DATABASE_PROVIDER=Postgres`, the API reads `DATABASE_URL` before the
+local `ConnectionStrings:Postgres` fallback in `appsettings.json`. This matters
+on Render because the fallback points at `localhost`, while the managed database
+uses its own network host.
+
 Do not commit real production secrets. Add provider-specific secrets through the
 hosting dashboard.
 

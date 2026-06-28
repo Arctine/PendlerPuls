@@ -16,12 +16,14 @@ Returns the API name, current UTC time, and an `ok` status.
 ### `GET /api/transit/locations?query=Oslo%20S`
 
 Searches Entur's geocoder. The query must contain at least two characters.
+Results include stop/place matches and address matches.
 
 Each result contains:
 
 - Entur ID
 - name and display label
 - latitude and longitude
+- kind (`stop`, `address`, or `place`)
 
 ### `POST /api/transit/preview`
 
@@ -35,6 +37,15 @@ Accepts selected `from` and `to` location objects and returns the next journey:
 - Entur attribution
 
 Entur failures return `502`.
+
+### `POST /api/transit/options`
+
+Accepts the same selected `from` and `to` location objects as preview and
+returns up to five possible upcoming journeys. Each option contains the same
+fields as `POST /api/transit/preview`.
+
+The iPhone client uses this endpoint to show route choices. The older preview
+endpoint remains available for the web client and backwards compatibility.
 
 ## Authentication
 

@@ -233,7 +233,8 @@ public static class JourneyEndpoints
             journey.FromName,
             journey.FromName,
             journey.FromLatitude,
-            journey.FromLongitude);
+            journey.FromLongitude,
+            "place");
     }
 
     private static LocationReference ToToLocation(SavedJourney journey)
@@ -243,7 +244,8 @@ public static class JourneyEndpoints
             journey.ToName,
             journey.ToName,
             journey.ToLatitude,
-            journey.ToLongitude);
+            journey.ToLongitude,
+            "place");
     }
 
     private static bool IsValidLocation(LocationReference? location)

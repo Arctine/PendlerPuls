@@ -9,7 +9,8 @@ public sealed record LocationReference(
     string Name,
     string Label,
     double Latitude,
-    double Longitude);
+    double Longitude,
+    string Kind = "place");
 
 public sealed record TripPreviewRequest(
     LocationReference From,
@@ -47,4 +48,3 @@ public sealed record SavedJourneyResponse(
     LocationReference To,
     DateTimeOffset CreatedAtUtc,
     IReadOnlyList<ObservationResponse> Observations);
-

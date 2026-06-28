@@ -28,7 +28,7 @@ public sealed class EnturClient(
     {
         using var request = new HttpRequestMessage(
             HttpMethod.Get,
-            $"{GeocoderUrl}?text={Uri.EscapeDataString(query)}&lang=en&size=6&layers=venue");
+            $"{GeocoderUrl}?text={Uri.EscapeDataString(query)}&lang=en&size=10&layers=venue,address");
         AddClientName(request);
 
         using var response = await httpClient.SendAsync(request, cancellationToken);
@@ -54,13 +54,22 @@ public sealed class EnturClient(
                 properties.GetProperty("name").GetString() ?? "Unknown place",
                 properties.GetProperty("label").GetString() ?? "Unknown place",
                 coordinates[1].GetDouble(),
-                coordinates[0].GetDouble()));
+                coordinates[0].GetDouble(),
+                ResolveLocationKind(properties)));
         }
 
         return locations;
     }
 
     public async Task<TripPreviewResponse> PreviewTripAsync(
+        TripPreviewRequest request,
+        CancellationToken cancellationToken)
+    {
+        var options = await PreviewTripOptionsAsync(request, cancellationToken);
+        return options[0];
+    }
+
+    public async Task<IReadOnlyList<TripPreviewResponse>> PreviewTripOptionsAsync(
         TripPreviewRequest request,
         CancellationToken cancellationToken)
     {
@@ -99,7 +108,16 @@ public sealed class EnturClient(
             throw new EnturUpstreamException("Entur returned no available journeys.");
         }
 
-        var pattern = patterns[0];
+        return patterns
+            .EnumerateArray()
+            .Select(pattern => ToTripPreview(request, pattern))
+            .ToList();
+    }
+
+    private static TripPreviewResponse ToTripPreview(
+        TripPreviewRequest request,
+        JsonElement pattern)
+    {
         var legs = pattern.GetProperty("legs").EnumerateArray().ToList();
         var finalLeg = legs[^1];
         var delayLeg = legs.LastOrDefault(leg =>
@@ -158,6 +176,24 @@ public sealed class EnturClient(
             CultureInfo.InvariantCulture);
     }
 
+    private static string ResolveLocationKind(JsonElement properties)
+    {
+        var layer = properties.GetProperty("layer").GetString() ?? string.Empty;
+        if (layer.Equals("address", StringComparison.OrdinalIgnoreCase))
+        {
+            return "address";
+        }
+
+        if (properties.TryGetProperty("mode", out var mode)
+            && mode.ValueKind == JsonValueKind.Array
+            && mode.GetArrayLength() > 0)
+        {
+            return "stop";
+        }
+
+        return "place";
+    }
+
     private static string BuildJourneyQuery(TripPreviewRequest request)
     {
         var fromName = JsonSerializer.Serialize(request.From.Name);
@@ -184,7 +220,7 @@ public sealed class EnturClient(
                     longitude: {{toLongitude}}
                   }
                 }
-                numTripPatterns: 1
+                numTripPatterns: 5
               ) {
                 tripPatterns {
                   duration
@@ -207,4 +243,3 @@ public sealed class EnturClient(
 }
 
 public sealed class EnturUpstreamException(string message) : Exception(message);
-
